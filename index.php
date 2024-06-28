@@ -4,5 +4,6 @@
 require 'vendor/autoload.php';
 
 require 'rotas.php';
+use sistema\Nucleo\Helpers;
 
 

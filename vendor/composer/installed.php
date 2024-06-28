@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'ceounset/cursophp8',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '5ec99ab3b869fceb234e7b679d7c00bcad5b7da5',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'ceounset/cursophp8' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '5ec99ab3b869fceb234e7b679d7c00bcad5b7da5',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
