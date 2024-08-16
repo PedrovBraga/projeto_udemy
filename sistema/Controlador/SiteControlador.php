@@ -5,6 +5,7 @@ namespace sistema\Controlador;
 use sistema\Nucleo\Controlador;
 use sistema\Modelo\PostModelo;
 use sistema\Nucleo\Helpers;
+use sistema\Modelo\CategoriaModelo;
 
 class SiteControlador extends Controlador
 {
@@ -17,8 +18,21 @@ class SiteControlador extends Controlador
     {
         $posts = (new PostModelo())->busca();
         echo $this->template->renderizar('index.html', [
-            'posts' => $posts
+            'posts' => $posts,
+            'categorias' => (new CategoriaModelo())->busca()
         ]);
+    }
+
+    public function buscar():void
+    {
+        $busca = filter_input_array(INPUT_POST, 'busca', FILTER_DEFAULT);
+        if(isset($busca)){
+            $posts = (new PostModelo())->pesquisa($busca);
+            
+            foreach($posts as $post){
+                echo $post->titulo.'<hr>';
+            }
+        }
     }
 
     public function post(int $id): void
@@ -29,7 +43,18 @@ class SiteControlador extends Controlador
         }
 
         echo $this->template->renderizar('post.html', [
-            'post' => $post
+            'post' => $post,
+            'categorias' => (new CategoriaModelo())->busca()
+        ]);
+    }
+
+    public function categoria(int $id): void
+    {
+        $posts = (new CategoriaModelo())->posts($id);
+
+        echo $this->template->renderizar('categoria.html', [
+            "posts" => $posts,
+            'categorias' => (new CategoriaModelo())->busca()
         ]);
     }
 

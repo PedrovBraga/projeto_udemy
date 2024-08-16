@@ -23,8 +23,8 @@ class Conexao {
                 die("Erro de conexão: ".$ex->getMessage());
             }
             
-            return self::$instancia;
         }
+        return self::$instancia;
     }
 
     // protected impede que sejam feitos vários "new Conexao" no sistema (singleton)
