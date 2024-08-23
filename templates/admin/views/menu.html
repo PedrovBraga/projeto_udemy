@@ -1,0 +1,29 @@
+<div class="sidebar">
+    <div class="sidebarLogo">
+        <a href="{{ url('admin/dashboard/') }}">
+            <img src="../assets/img/png-2702691_1280.webp" alt="">
+        </a>
+    </div>
+    <div class="sidebarMenu">
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li>
+                <a href="{{ url()}}" class="nav-link px-2 text-secondary">Home</a>
+            </li>
+            <li>
+                <a href="{{ url('admin/posts/listar')}}" class="nav-link px-2 text-secondary">Posts</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link px-2 text-secondary dropdown-toggle text-decor" data-bs-toggle="dropdown" aria-expanded="false">Categorias</a>
+                <ul class="dropdown-menu">
+                    {% for categoria in categorias %}
+                        <li>
+                            <a class="dropdown-item" href="{{url('categoria/'~categoria.id)}}" tooltip="tooltip" title="{{categoria.titulo}}">
+                                {{categoria.titulo}}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

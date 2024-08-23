@@ -19,4 +19,5 @@ define('URL_PRODUCAO', 'https://unset.com.br');
 define('URL_DESENVOLVIMENTO', 'http://localhost/projeto_udemy');
 
 define('URL_SITE', 'projeto_udemy/');
+define('URL_ADMIN', 'projeto_udemy/admin/');
 

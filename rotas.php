@@ -13,6 +13,11 @@ try{
     SimpleRouter::post(URL_SITE.'buscar', 'SiteControlador@buscar');
 
     SimpleRouter::get(URL_SITE.'404', 'SiteControlador@erro404');
+
+    SimpleRouter::group(['namespace' => 'Admin'], function () {
+        SimpleRouter::get(URL_ADMIN.'dashboard', 'AdminDashboard@dashboard');
+        SimpleRouter::get(URL_ADMIN.'posts', 'AdminPosts@listar');
+    });
     
     SimpleRouter::start();
 } catch(Exception $e){

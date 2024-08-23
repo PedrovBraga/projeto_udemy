@@ -25,12 +25,12 @@ class SiteControlador extends Controlador
 
     public function buscar():void
     {
-        $busca = filter_input_array(INPUT_POST, 'busca', FILTER_DEFAULT);
+        $busca = filter_input(INPUT_POST, 'busca', FILTER_DEFAULT);
         if(isset($busca)){
             $posts = (new PostModelo())->pesquisa($busca);
             
             foreach($posts as $post){
-                echo $post->titulo.'<hr>';
+                echo "<a href=".Helpers::url('post/').$post->id." class='text-white text-decoration-none'>$post->titulo</a><hr>";
             }
         }
     }
