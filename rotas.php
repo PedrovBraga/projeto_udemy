@@ -24,6 +24,8 @@ try{
     
             //ADMIN CATEGORIAS
             SimpleRouter::get(URL_ADMIN.'categorias/listar', 'AdminCategorias@listar');
+
+            SimpleRouter::match(['get', 'post'], URL_ADMIN.'categorias/cadastrar', 'AdminCategorias@cadastrar');
         // });
     });
     
