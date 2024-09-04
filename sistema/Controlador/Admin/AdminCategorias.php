@@ -3,6 +3,7 @@
 namespace sistema\Controlador\Admin;
 
 use sistema\Modelo\CategoriaModelo;
+use sistema\Nucleo\Helpers;
 
 class AdminCategorias extends AdminControlador {
 
@@ -14,7 +15,12 @@ class AdminCategorias extends AdminControlador {
 
     public function cadastrar():void {
         $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-        var_dump($dados);
+
+        if(isset($dados)){
+            (new CategoriaModelo())->armazenar($dados);
+            Helpers::redirecionar('admin/categorias/listar');
+        }
+
         echo $this->template->renderizar('categorias/formulario.html', []);
     }
 
