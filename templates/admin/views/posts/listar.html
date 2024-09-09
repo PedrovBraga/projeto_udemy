@@ -29,7 +29,7 @@
                                     Inativo
                                     {% endif %}
                                 </td>
-                                <td>@mdo</td>
+                                <td><a href="{{ url('admin/posts/editar'~post.id) }}">Editar</a></td>
                             </tr>
                         {% endfor %}
                     </tbody>
