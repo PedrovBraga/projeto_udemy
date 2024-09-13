@@ -6,7 +6,7 @@
             <h3>Posts</h3>
         </div>
         <div class="card-body">
-            <form action="{{url('admin/posts/cadastrar')}}" method="post">
+            <form action="{%if post.id %}{{url('admin/posts/editar/'~post.id)}}{% else %}{{url('admin/posts/cadastrar')}}{%endif%}" method="post">
                 <div class="mb-3">
                     <label for="titulo" class="form-label">Título</label>
                     <input type="text" class="form-control" id="titulo" value="{{ post.titulo }}" name="titulo">
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" value="{% if post.id %}Atualizar{% else %}Cadastrar{% endif %}">Submit</button>
             </form>
         </div>
     </div>

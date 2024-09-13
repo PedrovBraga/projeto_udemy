@@ -27,6 +27,11 @@ class AdminCategorias extends AdminControlador {
     public function editar(int $id):void {
         $categoria = (new CategoriaModelo())->buscarPorId($id);
         
+        $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        if(isset($dados)){
+            Helpers::redirecionar('admin/categorias/listar');
+        }
+
         echo $this->template->renderizar('categorias/formulario.html', [
             'categoria' => $categoria
         ]);

@@ -30,6 +30,12 @@ class AdminPosts extends AdminControlador {
     public function editar(int $id):void {
         $post = (new PostModelo())->buscarPorId($id);
         
+        $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        if(isset($dados)){
+            (new PostModelo())->atualizar($dados, $id);
+            Helpers::redirecionar('admin/posts/listar');
+        }
+
         echo $this->template->renderizar('posts/formulario.html', [
             'post' => $post,
             'categorias' => (new CategoriaModelo())->busca()
