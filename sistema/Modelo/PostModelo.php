@@ -6,8 +6,9 @@ use sistema\Nucleo\Conexao;
 
 class PostModelo
 {
-    public function busca(): array
+    public function busca(?string $termo = null): array
     {
+        $termo = ($termo ? "WHERE {$termo}" : "");
 
         $query = "SELECT * FROM posts";
         $stmt = Conexao::getInstancia()->query($query);
@@ -29,7 +30,6 @@ class PostModelo
 
     public function pesquisa(string $busca): array
     {
-
         $query = "SELECT * FROM posts WHERE status = 1 AND titulo LIKE '%{$busca}%'";
         $stmt = Conexao::getInstancia()->query($query);
 
@@ -46,10 +46,27 @@ class PostModelo
     }
     
     public function atualizar(array $dados, int $id):void {
-        $query = "UPDATE `posts` SET (`categoria_id` = :categoria_id, `titulo` = :titulo, `texto` = :texto, `status` = :`status` WHERE id = {$id}";
+        $query = "UPDATE `posts` SET `categoria_id` = :categoria_id, `titulo` = :titulo, `texto` = :texto, `status` = :status WHERE id = {$id}";
 
         $stmt = Conexao::getInstancia()->prepare($query);
         $stmt->execute($dados);
+    }
+
+    public function deletar(int $id):void {
+        $query = "DELETE FROM posts WHERE id = {$id}";
+
+        $stmt = Conexao::getInstancia()->prepare($query);
+        $stmt->execute();
+    }
+    
+    public function total():int {
+        $query = "SELECT * FROM posts";
+
+        $stmt = Conexao::getInstancia()->prepare($query);
+        $stmt->execute();
+
+        // Retorna total de linha afetadas
+        return $stmt->rowCount();
     }
 }
 

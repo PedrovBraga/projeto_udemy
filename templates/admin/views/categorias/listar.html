@@ -29,7 +29,8 @@
                                     Inativo
                                     {% endif %}
                                 </td>
-                                <td><a href="{{ url('admin/categorias/editar'~categoria.id) }}">Editar</a></td>
+                                <td><a href="{{ url('admin/categorias/editar/'~categoria.id) }}">Editar</a></td>
+                                <td><a href="{{ url('admin/categorias/deletar/'~categoria.id) }}">Deletar</a></td>
                             </tr>
                         {% endfor %}
                     </tbody>

@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">  
-                            <label for="categoria" class="form-label">categoria</label>
+                            <label for="categoria_id" class="form-label">categoria</label>
                             <select class="form-select" name="categoria_id" id="categoria_id">
                                 {% for categoria in categorias %}
                                     <option value="{{categoria.id}}" {%if post.categoria_id == categoria.id %}selected{% endif %}>{{categoria.titulo}}</option>
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                    <button type="submit" class="btn btn-primary" value="{% if post.id %}Atualizar{% else %}Cadastrar{% endif %}">Submit</button>
+                    <input type="submit" class="btn btn-primary" value="{% if post.id %}Atualizar{% else %}Cadastrar{% endif %}" />
             </form>
         </div>
     </div>

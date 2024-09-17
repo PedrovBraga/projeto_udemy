@@ -4,6 +4,7 @@
 <div class="card border-0 sahdow-sm">
         <div class="card-header bg-white border-0">
             <h3>POSTS</h3>
+            {{ total }}
             <a href="{{url('admin/posts/cadastrar')}}" class="btn btn-primary">Cadastrar</a>
         </div>
         <div class="card-body">
@@ -30,6 +31,7 @@
                                     {% endif %}
                                 </td>
                                 <td><a href="{{ url('admin/posts/editar/'~post.id) }}">Editar</a></td>
+                                <td><a href="{{ url('admin/posts/deletar/'~post.id) }}">Deletar</a></td>
                             </tr>
                         {% endfor %}
                     </tbody>

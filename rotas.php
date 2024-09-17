@@ -23,11 +23,13 @@ try{
             SimpleRouter::get(URL_ADMIN.'posts/listar', 'AdminPosts@listar');
             SimpleRouter::match(['get', 'post'], URL_ADMIN.'posts/cadastrar', 'AdminPosts@cadastrar');
             SimpleRouter::match(['get', 'post'], URL_ADMIN.'posts/editar/{id}', 'AdminPosts@editar');
+            SimpleRouter::get(URL_ADMIN.'posts/deletar/{id}', 'AdminPosts@deletar');
     
             //ADMIN CATEGORIAS
             SimpleRouter::get(URL_ADMIN.'categorias/listar', 'AdminCategorias@listar');
             SimpleRouter::match(['get', 'post'], URL_ADMIN.'categorias/cadastrar', 'AdminCategorias@cadastrar');
             SimpleRouter::match(['get', 'post'], URL_ADMIN.'categorias/editar/{id}', 'AdminCategorias@editar');
+            SimpleRouter::get(URL_ADMIN.'categorias/deletar/{id}', 'AdminCategorias@deletar');
         // });
     });
     
